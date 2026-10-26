@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {"Sid": "ListIndex", "Effect": "Allow", "Action": "s3:ListBucket",
+     "Resource": "arn:aws:s3:::rag-docs-muq",
+     "Condition": {"StringLike": {"s3:prefix": "index/*"}}},
+    {"Sid": "ReadIndex", "Effect": "Allow", "Action": "s3:GetObject",
+     "Resource": "arn:aws:s3:::rag-docs-muq/index/*"},
+    {"Sid": "SignUploads", "Effect": "Allow", "Action": "s3:PutObject",
+     "Resource": "arn:aws:s3:::rag-docs-muq/uploads/*"},
+    {"Sid": "EmbedAndAnswer", "Effect": "Allow", "Action": "bedrock:InvokeModel",
+     "Resource": [
+       "arn:aws:bedrock:us-east-2::foundation-model/amazon.titan-embed-text-v2:0",
+       "arn:aws:bedrock:us-east-2::foundation-model/amazon.nova-lite-v1:0"
+     ]}
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {"Sid": "ReadUploads", "Effect": "Allow", "Action": "s3:GetObject",
+     "Resource": "arn:aws:s3:::rag-docs-muq/uploads/*"},
+    {"Sid": "WriteIndex", "Effect": "Allow", "Action": "s3:PutObject",
+     "Resource": "arn:aws:s3:::rag-docs-muq/index/*"},
+    {"Sid": "Embed", "Effect": "Allow", "Action": "bedrock:InvokeModel",
+     "Resource": "arn:aws:bedrock:us-east-2::foundation-model/amazon.titan-embed-text-v2:0"}
+  ]
+}

@@ -1,0 +1,11 @@
+# Never commit these
+.venv/
+build/
+*.zip
+*.pdf
+__pycache__/
+.DS_Store
+response.json
+titan-test.json
+.env
+*.swp
